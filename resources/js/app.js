@@ -19,7 +19,13 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
+Vue.use(VueMaterial)
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('index-persona', require('./components/IndexPersona.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
