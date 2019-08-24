@@ -10,8 +10,9 @@
       </md-card-header>
 
       <md-card-actions>
-        <md-button>Action</md-button>
-        <md-button>Action</md-button>
+        <md-button>Ver</md-button>
+        <md-button>Editar</md-button>
+        <md-button>Eliminar</md-button>
       </md-card-actions>
     </md-card>
 </template>

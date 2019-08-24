@@ -7,7 +7,7 @@
             <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
             <md-icon>menu</md-icon>
             </md-button>
-            <span class="md-title">My Title</span>
+            <span class="md-title">{{nombre_app}}</span>
         </div>
         
         
@@ -17,9 +17,16 @@
             <md-icon>refresh</md-icon>
           </md-button>
 
-          <md-button class="md-icon-button">
+          <!--<md-menu class="md-icon-button">
             <md-icon>more_vert</md-icon>
-          </md-button>
+          </md-menu>-->
+          <md-menu md-direction="bottom-end">
+            <md-button md-menu-trigger class="md-icon-button"><md-icon>more_vert</md-icon></md-button>
+
+            <md-menu-content>
+                <md-menu-item>Cerrar sesión</md-menu-item>
+            </md-menu-content>
+            </md-menu>
         </div>
       </div>
       
@@ -77,7 +84,8 @@
 export default {
   name: 'Reveal',
   data: () => ({
-    menuVisible: false
+    menuVisible: false,
+    nombre_app: 'Personas-Vue'
   })
 }
 </script>

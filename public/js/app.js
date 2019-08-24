@@ -1865,6 +1865,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Media'
 });
@@ -1993,11 +1994,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Reveal',
   data: function data() {
     return {
-      menuVisible: false
+      menuVisible: false,
+      nombre_app: 'Personas-Vue'
     };
   }
 });
@@ -38073,9 +38082,11 @@ var render = function() {
       _c(
         "md-card-actions",
         [
-          _c("md-button", [_vm._v("Action")]),
+          _c("md-button", [_vm._v("Ver")]),
           _vm._v(" "),
-          _c("md-button", [_vm._v("Action")])
+          _c("md-button", [_vm._v("Editar")]),
+          _vm._v(" "),
+          _c("md-button", [_vm._v("Eliminar")])
         ],
         1
       )
@@ -38173,7 +38184,9 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("span", { staticClass: "md-title" }, [_vm._v("My Title")])
+                  _c("span", { staticClass: "md-title" }, [
+                    _vm._v(_vm._s(_vm.nombre_app))
+                  ])
                 ],
                 1
               ),
@@ -38200,9 +38213,25 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "md-button",
-                    { staticClass: "md-icon-button" },
-                    [_c("md-icon", [_vm._v("more_vert")])],
+                    "md-menu",
+                    { attrs: { "md-direction": "bottom-end" } },
+                    [
+                      _c(
+                        "md-button",
+                        {
+                          staticClass: "md-icon-button",
+                          attrs: { "md-menu-trigger": "" }
+                        },
+                        [_c("md-icon", [_vm._v("more_vert")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "md-menu-content",
+                        [_c("md-menu-item", [_vm._v("Cerrar sesión")])],
+                        1
+                      )
+                    ],
                     1
                   )
                 ],
