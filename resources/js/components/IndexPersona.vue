@@ -12,7 +12,7 @@
         
         
         <div class="md-toolbar-section-end">
-        <vue-fuse :keys="keys" :list="bikes" :defaultAll="false" :eventName="bikesChanged" class="fuse"></vue-fuse>
+        <vue-fuse :keys="personas_keys" :list="personas" :defaultAll="true" :threshold="0.3" @fuseResultsUpdated="results($event)" class="fuse"></vue-fuse>
           <md-button class="md-icon-button">
             <md-icon>refresh</md-icon>
           </md-button>
@@ -52,11 +52,15 @@
 
       <md-app-content>
         <card-persona></card-persona>
+        <empty-persona></empty-persona>
+        <agregar-persona></agregar-persona>
 
-        <md-button class="md-fab md-primary md-fab-bottom-right">
+        <md-button class="md-fab md-primary md-fab-bottom-right" @click="activar_ventana_agregar()">
             <md-icon>add</md-icon>
         </md-button>
       </md-app-content>
+
+
     </md-app>
   </div>
 </template>
@@ -85,7 +89,45 @@ export default {
   name: 'Reveal',
   data: () => ({
     menuVisible: false,
-    nombre_app: 'Personas-Vue'
-  })
+    nombre_app: 'Personas-Vue',
+    personas:[],
+    personas_key:['cedula', 'nombre', 'apellido']
+  }),
+  created(){
+      this.personas = [
+          {
+              id: 1,
+              cedula: "1082982258",
+              nombre: "Jorge",
+              apellido: "Pineda",
+              sexo: 1,
+              nombre_sexo: "Masculino",
+          },
+          {
+              id: 2,
+              cedula: "8522892801",
+              nombre: " Luis",
+              apellido: "Montagut",
+              sexo: 1,
+              nombre_sexo: "Masculino",
+          },
+          {
+              id: 3,
+              cedula: "1234567890",
+              nombre: " Maria",
+              apellido: "Martinez",
+              sexo: 2,
+              nombre_sexo: "Femenino",
+          }
+      ]
+  },
+  methods:{
+      activar_ventana_agregar(){
+          EventBus.$emit("activar_ventana_agregar", true);
+      },
+      results(data){
+          EventBus.$emit("buscar-personas", data);
+      }
+  }
 }
 </script>
